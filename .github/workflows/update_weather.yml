@@ -8,8 +8,8 @@ on:
     - cron: "*/5 * * * *"
   push:
     branches: [ "main" ]
-  workflow_dispatch: #우리가 버튼으로 트리거 할 수 있는 옵션
-
+  workflow_dispatch:  # 우리가 버튼으로 트리거할 수 있는 옵션
+    
 jobs:
   build:
 
@@ -26,4 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests python-dotenv
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
+    - name: Run update_weather.py
+      run: |
+        python update_weather.py
