@@ -1,3 +1,16 @@
+# update_weather.py
+# pip install python-dotenv requests
+import requests
+import os
+from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# OpenWeather API 키
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
+CITY = "Seoul"
+URL = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
 
 # README 파일 경로
 README_PATH = "README.md"
@@ -38,5 +51,4 @@ def update_readme():
 
 if __name__ == "__main__":
     update_readme()
-
 
